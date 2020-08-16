@@ -1,0 +1,23 @@
+.option-wrapper{
+    width: 80%;
+    background-color: brown;
+    margin: 10px auto;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.modal-body h5{
+    margin-left: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.options-container{
+    width: 100%;
+    
+}
+.option-wrapper:hover{
+    background-color: violet;
+}

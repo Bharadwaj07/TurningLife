@@ -2427,6 +2427,11 @@ img {
   font-size: 14px;
   color: inherit;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2); }
+/* .test-modal{
+  position: relative;
+  top: 50%;
+  left: 50%;
+} */
 
 .modal-content {
   border-radius: 0.1875rem;

@@ -1,0 +1,24 @@
+.question{
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.options-container{
+    display: flex;
+}
+
+.option-wrapper{
+    margin-left: 2rem;
+    margin-top: 10px;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    background-color: powderblue;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.option-wrapper:hover{
+    border-style: 1px solid orange;
+}

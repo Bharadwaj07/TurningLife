@@ -13,6 +13,7 @@ import "assets/scss/now-ui-kit.scss";
 import LandingPage from "views/LandingPage.js";
 import BlogPost from "views/blog/BlogPost";
 import Thought from "views/BrainThpught/Thought";
+import Test from './views/Test/Test';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -30,6 +31,10 @@ ReactDOM.render(
         <Route
           path="/blog"
           render={props => <BlogPost/>}
+        />
+        <Route
+          path="/test"
+          render={props => <Test/>}
         />
         <Redirect from="/" to="/landing-page" />
       </Switch>

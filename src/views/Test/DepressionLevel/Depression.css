@@ -1,0 +1,10 @@
+.depression_option_wrapper{
+    margin: 10px;padding-left: 10px;
+    background-color: tomato;
+    color: white;
+    cursor: pointer;
+}
+.depression_option_wrapper:hover{
+    background-color: turquoise;
+    color: black;
+}

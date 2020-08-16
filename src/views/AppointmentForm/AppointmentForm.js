@@ -4,8 +4,11 @@ import {Form} from "reactstrap";
 import FormFirstStep from './FormFirstStep';
 import FormSecondStep from './FormSecondStep';
 import FormThirdStep from './FormThirdStep';
+import fireStore from '../../firebase';
+import firebase from 'firebase';
+import * as Yup from 'yup';
  function AppointmentForm(props) {
-
+    const {validate} =props
     const initialValues ={
         name:'',
         email:'',
@@ -14,47 +17,35 @@ import FormThirdStep from './FormThirdStep';
         gender:'',
         prevHistory:'',
         remarks:'',
-        startDate:new Date(),
+        date:new Date(),
         timeslot:''
     }
-    const onSubmit = values =>{
+    const phoneRegExp = /^\d{10}$/
 
-
-        console.log(values);
-    }
-    const validate = values =>{
-        let errors ={}
-        if(!values.name){
-            errors.name ="Required"
-        }
-        if(!values.email){
-            errors.email ="Required"
-        }
-        if(!values.number){
-            errors.number = "Required"
-        }
-        if(!values.age){
-            errors.age ="Required"
-        }
-        if(!values.gender){
-            errors.gender ="Required"
-        }
-        if(!values.remarks){
-            errors.remarks ="Required"
-        }
-        if(!values.startDate){
-            errors.startDate ="Required"
-        }
-        if(!values.timeslot){
-            errors.timeslot ="Required"
-        }
+    const validationSchema = Yup.object({
+        name:Yup.string().required("Required"),
+        email:Yup.string().email().required("Required"),
+        number:Yup.string().matches(phoneRegExp,"Phone number is not valid").required("Required"),
+        age:Yup.number().max(99).required("Required"),
+        gender:Yup.string().required("Required"),
+        remarks:Yup.string().required("Required"),
+        timeslot:Yup.string().required("Required")
+    })
+    const onSubmit = (values,{resetForm}) =>{
+        fireStore.collection('appointments').add(values);
+        resetForm({values:''})
+        props.setStep(1);
+        props.closeModal();
+        alert('appointment succelfull')
+          
+     
     }
      const formik =useFormik({
          initialValues,
          onSubmit,
-         validate
+         validationSchema
      })
-     
+     console.log(formik.errors)
     return (
         <Form 
             onSubmit={formik.handleSubmit}
@@ -87,8 +78,6 @@ function renderstep(step,formik){
                     formik ={formik}
                 />
             )
-        default:
-            return("bii")
             
     }
 }

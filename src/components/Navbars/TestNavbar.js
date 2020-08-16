@@ -10,7 +10,7 @@ import {
   Container,
 } from "reactstrap";
 
-function BlogPostNavBar() {
+function TestNavBar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -79,13 +79,7 @@ function BlogPostNavBar() {
                     Home               
                   </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink
-                    href="/blog"
-                >
-                  Blog-Main
-                </NavLink>
-              </NavItem>
+              
               
                 
             </Nav>
@@ -96,4 +90,4 @@ function BlogPostNavBar() {
   );
 }
 
-export default BlogPostNavBar;
+export default TestNavBar;

@@ -2,3 +2,6 @@
     position: relative;
     top: 7%;
 }
+.error{
+    color: red;
+}

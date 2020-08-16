@@ -1,5 +1,5 @@
 import React from "react";
-
+import {withRouter} from 'react-router-dom';
 import {
   Collapse,
   NavbarBrand,
@@ -10,18 +10,25 @@ import {
   Container,
 } from "reactstrap";
 
-function ThoughtNavBar() {
-
+function ThoughtNavBar(props) {
+  const handleClick =() =>{
+    props.history.goBack();
+  }
   return (
     <>
       <Navbar className={"fixed-top "} color="info" expand="lg">
         <Container>
           <div className="navbar-translate">
-            <NavbarBrand
-              id="navbar-brand"
-            >
-              Back
-            </NavbarBrand>
+            
+            <Nav navbar>
+                <NavItem>
+                    <NavLink
+                      onClick={handleClick}
+                    > 
+                    Back              
+                    </NavLink>
+                </NavItem>
+            </Nav>
           </div>
         </Container>
       </Navbar>
@@ -29,4 +36,4 @@ function ThoughtNavBar() {
   );
 }
 
-export default ThoughtNavBar;
+export default withRouter(ThoughtNavBar);

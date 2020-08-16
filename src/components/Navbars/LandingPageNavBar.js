@@ -9,15 +9,11 @@ import {
   Nav,
   Container,
 } from "reactstrap";
-import Test from "views/Test";
+
 function LandingPageNavBar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
-  const [openTest,setTestModal] = React.useState(false);
 
-  const closeTestModal =()=>{
-    setTestModal(!openTest);
-  }
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -91,7 +87,7 @@ function LandingPageNavBar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                href="#pablo"
+                href="#sevice"
                 onClick={e => {
                   e.preventDefault();
                   document
@@ -103,7 +99,7 @@ function LandingPageNavBar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="#pablo"
+                  href="#blog"
                   onClick ={e =>{
                     e.preventDefault();
                     document
@@ -116,10 +112,10 @@ function LandingPageNavBar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  onClick={() => setTestModal(true)}
+                  href="/test"
                 >
                   TakeTest
-                  <Test  open={openTest} closeModal={closeTestModal}/>
+                  
                 </NavLink>
               </NavItem>
               <NavItem>

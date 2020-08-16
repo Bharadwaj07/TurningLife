@@ -15,6 +15,35 @@ import AppointmentForm from './AppointmentForm/AppointmentForm';
         const prev = step -1;
         setStep(prev);
     }
+    const validate = values =>{
+        let errors ={}
+        if(!values.name){
+            errors.name ="Required"
+        }
+        if(!values.email){
+            errors.email ="Required"
+        }
+        if(!values.number){
+            errors.number = "Required"
+        }
+        if(!values.age){
+            errors.age ="Required"
+        }
+        if(!values.gender){
+            errors.gender ="Required"
+        }
+        if(!values.remarks){
+            errors.remarks ="Required"
+        }
+        if(!values.date){
+            errors.date ="Required"
+        }
+        
+        if(!values.timeslot){
+            errors.timeslot ="Required"
+        }
+        return errors
+    }
     
         return (
             <AppointmentModal  
@@ -22,10 +51,15 @@ import AppointmentForm from './AppointmentForm/AppointmentForm';
                 closeModal={props.closeModal}
                 nextStep={nextStep}
                 prevStep={prevStep}
+                setStep={setStep}
                 step={step}
+                validate={validate}
                 >
                 <AppointmentForm
+                    validate={validate}
                     step={step}
+                    setStep={setStep}
+                    closeModal={props.closeModal}
                 />
             </AppointmentModal>
         )

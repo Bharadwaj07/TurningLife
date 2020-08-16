@@ -7,10 +7,7 @@ import {
 
 function FormFirstStep(props) {
     const {formik} = props
-    console.log(props.formik)
-    const onValueChange =(e)=>{
-        console.log(e.target.value)
-    }
+    
     return (
         <>
             <FormGroup>
@@ -19,11 +16,15 @@ function FormFirstStep(props) {
                     type="text" 
                     name="name"
                     onChange={formik.handleChange}
-                    value={formik.values.name}    
+                    value={formik.values.name} 
+                    onBlur={formik.handleBlur}   
                     id="Name" 
                     placeholder="Your name.." 
                 
                 />
+                {formik.touched.name &&formik.errors.name ?(
+                    <div className="error">{formik.errors.name}</div>
+                ):null}
             </FormGroup>
             <FormGroup>
                 <Label for="Email">Email</Label>
@@ -31,10 +32,14 @@ function FormFirstStep(props) {
                     type="email" 
                     name="email"
                     onChange={formik.handleChange}
-                    value={formik.values.email}  
+                    value={formik.values.email} 
+                    onBlur={formik.handleBlur} 
                     id="Email" 
                     placeholder="enter your email" 
                 />
+                {formik.touched.email && formik.errors.email ?(
+                    <div className="error">{formik.errors.email}</div>
+                ):null}
             </FormGroup>
             <FormGroup>
                 <Label for="Number">Phone number</Label>
@@ -43,9 +48,13 @@ function FormFirstStep(props) {
                     name="number"
                     onChange={formik.handleChange}
                     value={formik.values.number}  
+                    onBlur={formik.handleBlur}
                     id="Number" 
                     placeholder="enter your Phone number" 
                 />
+                {formik.touched.number && formik.errors.number ?(
+                    <div className="error">{formik.errors.number}</div>
+                ):null}
             </FormGroup>
             <FormGroup>
                 <Label for="Age">Your Age</Label>
@@ -54,13 +63,18 @@ function FormFirstStep(props) {
                     name="age" 
                     onChange={formik.handleChange}
                     value={formik.values.age} 
+                    onBlur={formik.handleBlur}
                     id="Age" 
                     placeholder="enter your Age" 
                 />
+                {formik.touched.age && formik.errors.age ?(
+                    <div className="error">{formik.errors.age}</div>
+                ):null}
             </FormGroup>
             <FormGroup tag="fieldset"
                 name="gender"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
             >
                 <label>Gender</label>
                 <FormGroup check>
@@ -81,6 +95,9 @@ function FormFirstStep(props) {
                             Other
                     </Label>
                 </FormGroup>
+                {formik.touched.gender && formik.errors.gender ?(
+                    <div className="error">{formik.errors.gender}</div>
+                ):null}
             </FormGroup>
         </>
     )
